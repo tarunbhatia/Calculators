@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class ListViewAdapter extends ArrayAdapter<ListViewItem> {
  
     public ListViewAdapter(Context context, List<ListViewItem> items) {
-        super(context, R.layout.listview_items, items);
+        super(context, R.layout.homepage_listview_items, items);
     }
  
     @Override
@@ -23,7 +23,7 @@ public class ListViewAdapter extends ArrayAdapter<ListViewItem> {
         if(convertView == null) {
             // inflate the GridView item layout
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.listview_items, parent, false);
+            convertView = inflater.inflate(R.layout.homepage_listview_items, parent, false);
             
             // initialize the view holder
             viewHolder = new ViewHolder();
