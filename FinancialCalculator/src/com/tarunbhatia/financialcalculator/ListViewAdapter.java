@@ -1,7 +1,5 @@
 package com.tarunbhatia.financialcalculator;
 
-import java.util.List;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ListViewAdapter extends ArrayAdapter<ListViewItem> {
+import java.util.List;
+
+public class ListViewAdapter extends ArrayAdapter<HomePageListViewItem> {
  
-    public ListViewAdapter(Context context, List<ListViewItem> items) {
+    public ListViewAdapter(Context context, List<HomePageListViewItem> items) {
         super(context, R.layout.homepage_listview_items, items);
     }
  
@@ -37,7 +37,7 @@ public class ListViewAdapter extends ArrayAdapter<ListViewItem> {
         }
         
         // update the item view
-        ListViewItem item = getItem(position);
+        HomePageListViewItem item = getItem(position);
         viewHolder.ivIcon.setImageDrawable(item.icon);
         viewHolder.tvTitle.setText(item.title);
         viewHolder.tvDescription.setText(item.description);

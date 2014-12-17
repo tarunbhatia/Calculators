@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class CalculatorFragment extends Fragment implements
-		android.view.View.OnClickListener {
+		View.OnClickListener {
 
 	// Empty Constructor
 	public CalculatorFragment() {
@@ -141,7 +141,17 @@ public class CalculatorFragment extends Fragment implements
 			if (secondInput.getText().length() > 0) {
 				if (secondInput.getText().length() == 1) {
 					secondInput.setText("");
+				} else if (secondInput.getText().toString().endsWith(".0")) {
+					secondInput
+							.setText(secondInput
+									.getText()
+									.toString()
+									.substring(
+											0,
+											secondInput.getText().toString()
+													.length() - 3));
 				} else {
+
 					secondInput
 							.setText(secondInput
 									.getText()

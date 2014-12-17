@@ -1,8 +1,5 @@
 package com.tarunbhatia.financialcalculator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.ListFragment;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -11,11 +8,14 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * HomePage fragment containing a simple view.
  */
 public class HomePageFragment extends ListFragment {
-	private List<ListViewItem> mItems = null;
+	private List<HomePageListViewItem> mItems = null;
 
 	// Empty Constructor
 	public HomePageFragment() {
@@ -25,12 +25,19 @@ public class HomePageFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mItems = new ArrayList<ListViewItem>();
+		mItems = new ArrayList<HomePageListViewItem>();
 		Resources resources = getResources();
-		mItems.add(new ListViewItem(resources
+		// Adding simple Calculator
+		mItems.add(new HomePageListViewItem(resources
 				.getDrawable(R.drawable.ic_launcher_calc),
 				getString(R.string.simple_calculator),
 				getString(R.string.simple_calculator_desc)));
+
+		// Adding Simple Monthly Mortgage Payment Calculator
+		mItems.add(new HomePageListViewItem(resources
+				.getDrawable(R.drawable.ic_launcher_calc),
+				getString(R.string.simple_monthly_payment_calculator),
+				getString(R.string.simple_monthly_payment_calculator_desc)));
 
 		// initialize and set the list adapter
 		setListAdapter(new ListViewAdapter(getActivity(), mItems));
@@ -47,12 +54,20 @@ public class HomePageFragment extends ListFragment {
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		// retrieve theListView item
 		if (position >= 0) {
-			ListViewItem item = mItems.get(position);
+			HomePageListViewItem item = mItems.get(position);
 			// If simple calculator option is pressed, launch Calculator
 			// Activity
 			if (position == 0) {
 				Intent intent = new Intent(getActivity()
 						.getApplicationContext(), CalculatorActivity.class);
+				startActivity(intent);
+			}
+
+			// If simple Mortage calculator option is pressed, launch simple
+			// Mortgage payment calculator activity
+			if (position == 1) {
+				Intent intent = new Intent(getActivity()
+						.getApplicationContext(), SimpleMortgageCalculatorActivity.class);
 				startActivity(intent);
 			}
 

@@ -7,5 +7,9 @@
     <string name="icon_content_description">Descriptor</string>
     <string name="simple_calculator">Simple Calculator</string>
     <string name="simple_calculator_desc">A Simple Calculator</string>
+    <string name="simple_monthly_payment_calculator">Monthly Payment Calculator</string>
+    <string name="simple_monthly_payment_calculator_desc">Simple and Advanced Monthly Payment Calculator</string>
+    <string name="mort_payment_tab_title_section1">Simple</string>
+    <string name="mort_payment_tab_title_section2">Advanced</string>
 
 </resources>
